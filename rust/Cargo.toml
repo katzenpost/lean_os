@@ -3,14 +3,18 @@ name = "lean-os"
 version = "0.1.0"
 edition = "2021"
 license = "AGPL-3.0-only"
-publish = false
+description = "Operating system calls for Lean 4 programs that Lean's standard library lacks, on Linux and Android: the Rust half of the Lean package lean_os"
+repository = "https://github.com/katzenpost/lean_os"
+readme = "../README.md"
+keywords = ["lean", "ffi", "fsync"]
+categories = ["external-ffi-bindings"]
 
 [lib]
 name = "lean_os"
 crate-type = ["staticlib"]
 
 [dependencies]
-lean-sys = { git = "https://github.com/katzenpost/lean-sys", rev = "302ec9fa85f8dc5e392ddb6841835cc59ea27389", default-features = false, features = ["mimalloc"] }
+lean-sys = { package = "katzenpost-lean-sys", version = "0.1.0", default-features = false, features = ["mimalloc"] }
 
 [profile.release]
 panic = "abort"
