@@ -1,0 +1,16 @@
+[package]
+name = "lean-os"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-only"
+publish = false
+
+[lib]
+name = "lean_os"
+crate-type = ["staticlib"]
+
+[dependencies]
+lean-sys = { git = "https://github.com/katzenpost/lean-sys", rev = "302ec9fa85f8dc5e392ddb6841835cc59ea27389", default-features = false, features = ["mimalloc"] }
+
+[profile.release]
+panic = "abort"
